@@ -2,9 +2,44 @@
 
 .dart {
     position: absolute;
-    top: 600px;
+    bottom: 100px;
     left: 70px;
-    transform: rotate(-110deg);
+    transform: rotate(180deg);
+    animation-duration: 5s;
+    animation-name: aim;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 0%;
+    animation-timing-function: linear;
+}
+
+@keyframes aim {
+    10% {
+        transform: rotate(200deg);
+    }
+    20% {
+        transform: rotate(220deg);
+    }
+    30% {
+        transform: rotate(240deg);
+    } 
+    40% {
+        transform: rotate(260deg);
+    }  
+    50% {
+        transform: rotate(280deg);
+    }
+    60% {
+        transform: rotate(260deg);
+    }
+    70% {
+        transform: rotate(240deg);
+    }
+    80% {
+        transform: rotate(220deg);
+    }
+    90% {
+        transform: rotate(200deg);
+    }
 }
 
 /* Hexagon from https://css-tricks.com/examples/ShapesOfCSS/ */

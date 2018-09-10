@@ -1,0 +1,1 @@
+let dart = document.getElementsByClassName('dart')[0];
