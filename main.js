@@ -57,7 +57,7 @@ function displayMessage() {
     messageDiv.id = 'message-div';
     messageDiv.textContent = 'HAPPY BIRTHDAY!';
     let cakeImage = document.createElement('img');
-    cakeImage.src = './birthday-cake-2.jpg';
+    cakeImage.src = './birthday-cake-2.JPG';
     cakeImage.id = 'cake-image';
     messageDiv.appendChild(cakeImage);
     body.appendChild(messageDiv);
