@@ -81,3 +81,215 @@
     border-radius: 50%;
     background-color: black;
 }
+
+/* Triangle from https://css-tricks.com/examples/ShapesOfCSS/ */
+
+.white-slice,
+.black-slice {
+    position: absolute;
+    z-index: 5;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    top: 220px;
+    right: 36px;
+    transform-origin: left;
+}
+
+.white-slice {
+    border-right: 210px solid white;
+}
+
+.black-slice {
+    border-right: 210px solid black;
+}
+
+.white-slice.one {
+    transform: rotate(0deg);
+}
+
+.white-slice.two {
+    transform: rotate(36deg);
+}
+
+.white-slice.three {
+    transform: rotate(72deg);
+}
+
+.white-slice.four {
+    transform: rotate(108deg);
+}
+
+.white-slice.five {
+    transform: rotate(144deg);
+}
+
+.white-slice.six {
+    transform: rotate(180deg);
+}
+
+.white-slice.seven {
+    transform: rotate(216deg);
+}
+
+.white-slice.eight {
+    transform: rotate(252deg);
+}
+
+.white-slice.nine {
+    transform: rotate(288deg);
+}
+
+.white-slice.ten {
+    transform: rotate(324deg);
+}
+
+.black-slice.one {
+    transform: rotate(18deg);
+}
+
+.black-slice.two {
+    transform: rotate(54deg);
+}
+
+.black-slice.three {
+    transform: rotate(90deg);
+}
+
+.black-slice.four {
+    transform: rotate(126deg);
+}
+
+.black-slice.five {
+    transform: rotate(162deg);
+}
+
+.black-slice.six {
+    transform: rotate(198deg);
+}
+
+.black-slice.seven {
+    transform: rotate(234deg);
+}
+
+.black-slice.eight {
+    transform: rotate(270deg);
+}
+
+.black-slice.nine {
+    transform: rotate(306deg);
+}
+
+.black-slice.ten {
+    transform: rotate(342deg);
+}
+
+.green-strip {
+    background-color: green;
+    z-index: 10;
+}
+
+.green-strip.outer {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    left: 200px;
+    top: -30px;
+}
+
+.green-strip.inner {
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    left: 100px;
+    top: -14px;
+}
+
+.green-strip.inner:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    top: -2px;
+    left: 0;
+    background-color: green;
+}
+
+.red-strip {
+    background-color: red;
+    z-index: 10;
+}
+
+.red-strip.outer {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    left: 200px;
+    top: -26px;
+}
+
+.red-strip.inner {
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    left: 100px;
+    top: -13px;
+}
+
+.red-strip.inner:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    top: -4px;
+    left: 0;
+    background-color: red;
+}
+
+.red-strip.outer:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    top: -9px;
+    left: 0;
+    background-color: red;   
+}
+
+.bullseye {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 222px;
+    left: 227px;
+    z-index: 10;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.bullseye .red-circle {
+    background-color: red;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    left: 15px;
+    z-index: 15;
+    border-radius: 50%;
+}
+
+.white-slice p,
+.black-slice p {
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    left: 225px;
+    top: -5px;
+    transform: rotate(90deg);
+}
+
+.white-slice p.adjust-rotation,
+.black-slice p.adjust-rotation {
+    transform: rotate(-90deg);
+}
