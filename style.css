@@ -301,5 +301,20 @@ body {
 }
 
 #message-div {
-    
+    font-family: 'Baloo Tammudu', cursive;
+    font-size: 100px;
+    margin-top: 60px;
+    margin-left: 20px;
+    width: 200px;
+    height: 100px;
+    position: relative;
+}
+
+#cake-image {
+    position: absolute;
+    top: 275px;
+    left: 30px;
+    width: 400px;
+    height: auto;
+    z-index: 0;
 }

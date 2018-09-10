@@ -55,9 +55,25 @@ function displayMessage() {
     audio.play();
     let messageDiv = document.createElement('div');
     messageDiv.id = 'message-div';
-    messageDiv.style.margin = '30px';
-    messageDiv.style.border = '1px solid black';
-    messageDiv.style.width = messageDiv.style.height = '300px';
     messageDiv.textContent = 'HAPPY BIRTHDAY!';
+    let cakeImage = document.createElement('img');
+    cakeImage.src = 'birthday-cake-2.jpg';
+    cakeImage.id = 'cake-image';
+    messageDiv.appendChild(cakeImage);
     body.appendChild(messageDiv);
+    flashColors(messageDiv);
+}
+
+function flashColors(element) {
+    let colors = ['red', 'orange', 'gold', 'green', 'blue', 'purple'];
+    let i = 0;
+
+    let flashing = setInterval(() => {
+        element.style.color = colors[i];
+        i = (i + 1) % colors.length;
+    }, 350);
+
+    body.addEventListener('click', function() {
+        clearInterval(flashing);
+    });
 }
