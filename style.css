@@ -6,6 +6,7 @@ body {
 /* Dart */
 
 .dart {
+    z-index: 20;
     position: absolute;
     bottom: 100px;
     left: 70px;

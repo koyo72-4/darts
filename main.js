@@ -20,15 +20,24 @@ body.addEventListener('click', stopAimingDart);
 function stopAimingDart() {
     clearInterval(aimInterval);
     windUpDart();
+    body.removeEventListener('click', stopAimingDart);
 }
+
+let startTime = Date.now();
 
 function windUpDart() {
     let windUpInterval = setInterval(() => {
         console.log('in windUpInterval');
-        let coords = dart.getBoundingClientRect();
-        console.log('coords.left:', coords.left);
-        console.log(dart.style.left);
-        dart.style.left = `${coords.left - 5} px`;
-        console.log('left:', dart.style.left);
-    }, 100);
+        let timeElapsed = Date.now() - startTime;
+        draw(timeElapsed);
+    }, 20);
+    body.addEventListener('click', function() {
+        clearInterval(windUpInterval);
+    });
+}
+
+function draw(timeElapsed) {
+    console.log(dart.style.left);
+    dart.style.left = timeElapsed / 10 + 'px';
+    dart.style.bottom = timeElapsed / 10 + 'px';
 }
