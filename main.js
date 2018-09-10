@@ -1,20 +1,18 @@
 let dart = document.getElementsByClassName('dart')[0];
 let body = document.getElementsByTagName('body')[0];
 
-dart.style.bottom = '100px';
+dart.style.bottom = '70px';
 dart.style.left = '70px';
 dart.style.transform = `rotate(180deg)`;
 
+body.addEventListener('click', stopAimingDart);
+
 let aimInterval = setInterval(() => {
     let rotationString = dart.style.transform;
-    console.log(rotationString.match(/\d+/)[0]);
     let rotation = Number(rotationString.match(/\d+/)[0]);
     rotation += 1;
     dart.style.transform = `rotate(${rotation}deg)`;
-    console.log('rotation:', rotation);
 }, 15);
-
-body.addEventListener('click', stopAimingDart);
 
 function stopAimingDart() {
     clearInterval(aimInterval);
@@ -22,36 +20,44 @@ function stopAimingDart() {
     body.removeEventListener('click', stopAimingDart);
 }
 
-let startTime = Date.now();
-
 function windUpDart() {
     let windUpInterval = setInterval(() => {
-        let timeElapsed = Date.now() - startTime;
-        draw(timeElapsed);
-    }, 1000); // used to be 20ms
-    body.addEventListener('click', function() {
+        draw();
+    }, 25);
+
+    body.addEventListener('click', clearIntervalAndDisplayMessage);
+    
+    function clearIntervalAndDisplayMessage() {
         clearInterval(windUpInterval);
-    });
+        displayMessage();
+        body.removeEventListener('click', clearIntervalAndDisplayMessage);
+    }
 }
 
-function draw(timeElapsed) {
+function draw() {
     let rotationString = dart.style.transform;
     let rotation = Number(rotationString.match(/\d+/)[0]);
+
     let angle = rotation - 180;
-    let ratio = Math.tan(angle);
-    console.log('rotation:', rotation, 'angle:', angle, 'ratio:', ratio);
+    let angleInRadians = angle * (Math.PI / 180);
+
+    let ratio = Math.tan(angleInRadians);
+
     let left = Number(dart.style.left.match(/\d+/)[0]);
     let bottom = Number(dart.style.bottom.match(/\d+/)[0]);
-    console.log('left:', left, 'bottom:', bottom);
 
-    // let leftNumber = Number(dart.style.left.match(/\d+/)[0]);
-    // console.log('leftNumber:', leftNumber);
-    console.log(left * ratio + 'px');
+    dart.style.bottom = (bottom + 5) + 'px';
+    dart.style.left = (left + 5 * ratio) + 'px';
+}
 
-    dart.style.left = timeElapsed/(left * ratio) + 'px';
-    dart.style.bottom = timeElapsed/(bottom * ratio) + 'px';
-    console.log('new left:', dart.style.left, 'new bottom:', dart.style.bottom);
-
-    // dart.style.left = timeElapsed / 10 + 'px';
-    // dart.style.bottom = timeElapsed / 10 + 'px';
+function displayMessage() {
+    let audio = new Audio('Song7.m4a');
+    audio.play();
+    let messageDiv = document.createElement('div');
+    messageDiv.id = 'message-div';
+    messageDiv.style.margin = '30px';
+    messageDiv.style.border = '1px solid black';
+    messageDiv.style.width = messageDiv.style.height = '300px';
+    messageDiv.textContent = 'HAPPY BIRTHDAY!';
+    body.appendChild(messageDiv);
 }

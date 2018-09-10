@@ -1,6 +1,6 @@
 body {
     max-width: 2000px;
-    height: 730px;
+    height: 710px;
 }
 
 /* Dart */
@@ -12,73 +12,6 @@ body {
     left: 70px;
     transform: rotate(180deg);
 }
-    /* animation-duration: 5s;
-    animation-name: aim;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 0%;
-    animation-timing-function: linear;
-    animation-play-state: running;
-}
-
-@keyframes aim {
-    10% {
-        transform: rotate(200deg);
-    }
-    20% {
-        transform: rotate(220deg);
-    }
-    30% {
-        transform: rotate(240deg);
-    } 
-    40% {
-        transform: rotate(260deg);
-    }  
-    50% {
-        transform: rotate(280deg);
-    }
-    60% {
-        transform: rotate(260deg);
-    }
-    70% {
-        transform: rotate(240deg);
-    }
-    80% {
-        transform: rotate(220deg);
-    }
-    90% {
-        transform: rotate(200deg);
-    }
-}
-
-@keyframes wind-up {
-    10% {
-        transform: translate(-10px, -10px);
-    }
-    20% {
-        transform: translate(-20px, -20px);
-    }
-    30% {
-        transform: translate(-30px, -30px);
-    }
-    40% {
-        transform: translate(-40px, -40px);
-    }
-    50% {
-        transform: translate(-50px, -50px);
-    }
-    60% {
-        
-    }
-    70% {
-        
-    }
-    80% {
-        
-    }
-    90% {
-        
-    }
-} */
 
 /* Hexagon from https://css-tricks.com/examples/ShapesOfCSS/ */
 
@@ -365,4 +298,8 @@ body {
 .white-slice p.adjust-rotation,
 .black-slice p.adjust-rotation {
     transform: rotate(-90deg);
+}
+
+#message-div {
+    
 }
