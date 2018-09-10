@@ -28,7 +28,7 @@ function windUpDart() {
     let windUpInterval = setInterval(() => {
         let timeElapsed = Date.now() - startTime;
         draw(timeElapsed);
-    }, 20);
+    }, 1000); // used to be 20ms
     body.addEventListener('click', function() {
         clearInterval(windUpInterval);
     });
@@ -40,15 +40,16 @@ function draw(timeElapsed) {
     let angle = rotation - 180;
     let ratio = Math.tan(angle);
     console.log('rotation:', rotation, 'angle:', angle, 'ratio:', ratio);
-    let left = dart.style.left;
-    let bottom = dart.style.bottom;
+    let left = Number(dart.style.left.match(/\d+/)[0]);
+    let bottom = Number(dart.style.bottom.match(/\d+/)[0]);
     console.log('left:', left, 'bottom:', bottom);
 
     // let leftNumber = Number(dart.style.left.match(/\d+/)[0]);
     // console.log('leftNumber:', leftNumber);
+    console.log(left * ratio + 'px');
 
-    dart.style.left = left * ratio + 'px';
-    dart.style.bottom = bottom * ratio + 'px';
+    dart.style.left = timeElapsed/(left * ratio) + 'px';
+    dart.style.bottom = timeElapsed/(bottom * ratio) + 'px';
     console.log('new left:', dart.style.left, 'new bottom:', dart.style.bottom);
 
     // dart.style.left = timeElapsed / 10 + 'px';
